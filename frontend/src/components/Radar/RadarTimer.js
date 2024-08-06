@@ -8,7 +8,7 @@ const MAX_COLLISION_RETRY_COUNT = 350;
 const TOLERANCE_CONSTANT = 6;
 const DEFAULT_WIDTH = 700;
 const RADIUS_DIMINISH_CONSTANT = 1.5;
-const TOP_MARGIN = 50;
+const TOP_MARGIN = 50; // Add a constant for the top margin
 
 function RadarTimer(props) {
     const width = props.width || DEFAULT_WIDTH;
@@ -59,9 +59,9 @@ function RadarTimer(props) {
             }
 
             const blip = {
-                id: `${entry.unit_assignment_id}-${entry.quadrant}-${entry.ring}`,
+                id: `${entry.unit_assignment_id}-${entry.quadrant}-${entry.ring}`, // Unique identifier
                 name: `Unit ${entry.unit_assignment_id}`,
-                quadrant: entry.quadrant,
+                quadrant: entry.quadrant, // Use sector as quadrant
                 x: coordinates.x,
                 y: coordinates.y,
                 percentageprofitandloss: entry.percentageprofitandloss,
@@ -166,7 +166,7 @@ function RadarTimer(props) {
                             angle={angle}
                             name={quadrant}
                             radiusDiminish={radiusDiminishConstant}
-                            animate={props.animate}
+                            animate={props.animate} // Pass the animate prop
                         />
                     );
                 })}

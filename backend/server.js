@@ -43,13 +43,13 @@ app.get('/api/data', async (req, res) => {
                 f.ticker,
                 f.sector
             FROM 
-                war.performance p
+                war_clone.performance p
             LEFT JOIN 
-                war.deployment d ON p.unit_assignment_id = d.unit_assignment_id
+                war_clone.deployment d ON p.unit_assignment_id = d.unit_assignment_id
             LEFT JOIN 
-                war.allocation a ON d.deployment_id = a.deployment_id
+                war_clone.allocation a ON d.deployment_id = a.deployment_id
             LEFT JOIN 
-                war.leads l ON p.lead_id = l.leads_id
+                war_clone.leads l ON p.lead_id = l.leads_id
             LEFT JOIN 
                 stocktrader.fortune_1000 f ON l.stock_name = f.ticker
         `;
